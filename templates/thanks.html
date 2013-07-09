@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Welcome to Company Profile{% endblock %}
+
+{% block inject_head %}
+{{ block.super }}
+{% endblock inject_head %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="span9 offset1 cmpfp">
+            <h1>Thank you!</h1>
+            <p class="body">The company profile you have provided is in moderation. We will get in touch... -- to be supplied by Debleena --</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Company 2012</p>
+    </footer>
+</div> <!-- /container -->
+{% endblock %}
+
+{% block inject_foot %}
+{{ block.super }}
+{% endblock %}

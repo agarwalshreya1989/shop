@@ -1,0 +1,32 @@
+{% extends "login.html" %}
+
+{% block content %}
+
+Name :<h1>{{ p.name }}</h1>
+Brand: <em>{{ p.brand }}</em>
+<br /><br />
+SKU: {{ p.sku }}
+<br />
+Was: <del>$ {{ p.old_price }}</del>
+<br />
+Now: $ {{ p.price }}
+
+Price: $ {{ p.price }}
+
+<br /><br />
+<form method="post" action="." class="cart">{% csrf_token %}
+{{ form.as_p }}
+<br />
+<input type="submit" value="Add To Cart" name="submit" alt="Add To Cart" />
+</form>
+<div class="cb"></div>
+
+<br /><br />
+<div class="cb"><br /><br /></div>
+<h3>Product Description</h3>
+{{ p.description }}
+
+{% endblock %}
+
+
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
+ <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
+
+    
+      
+
+
+</head>
+<body>
+    <img alt="full screen background image" src="/static/images/background.jpg" id="full-screen-background-image"/>
+    
+      <div id="wrapper">
+          <h6><a>pixlie</a></h6>
+    <nav>
+        {% if user.is_authenticated %}
+        <ul>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+        {% else %}
+        <ul>
+            <li><a href="{% url 'register' %}">Signup</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="#">Home</a></li>            
+        </ul>
+        {% endif %}
+        </nav>
+    {% block content %}
+   {% endblock %}
+      </div>
+
+</body>
+</html>
+
+
+

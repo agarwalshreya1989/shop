@@ -1,0 +1,18 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block title %}registration_done{{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="pull-right">
+        <p >You have been registered. go to your profile.
+        	<br>
+        	<a href="{% url 'profile' %}">Profile</a>
+
+        </p>
+    </div>
+</div>
+{% endblock %}

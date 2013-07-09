@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block inject_head %}
+{{ block.super }}
+
+{% endblock inject_head %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="span9 offset1 cmpfp">
+            <h1>{{ user.first_name }} {{user.last_name}}</h1>
+            <p class="body">{{ company.details }}</p>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">&nbsp;</div>
+    
+    <div class="row">
+        <div class="span9 offset1 cmpfr">
+            <ul class="nav nav-pills">
+              <li class="active"><a href="#">Edit Profile</a></li>
+            </ul>
+            <form id="id_cmpfrbd" method="post">
+				{% csrf_token %}
+				{% for field in form %}
+                <div class="control-group">
+                    <label class="control-label" for="inputName">{{field.label_tag}}</label>
+                    <div class="controls">
+                    {{field}}
+                    <!--<span class="help-block">Common name for the company</span>-->
+                    </div>
+                </div>
+                {% endfor %}
+                <hr class="full">
+                <div class="control-group">
+                    <button class="btn btn-success btn-large" type="submit" name="submit">Save and Proceed</button>
+                </div>
+			</form>
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <footer>
+        <p>&copy; Company 2012</p>
+    </footer>
+</div><!-- end container-->
+{% endblock %}
+
+{% block inject_foot %}
+{{ block.super }}
+{% endblock %}
+

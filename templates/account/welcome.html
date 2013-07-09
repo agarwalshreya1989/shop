@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to SMEHERO{% endblock %}
+
+{% block inject_head %}
+{{ block.super }}
+{% endblock inject_head %}
+
+{% block content %}
+<div class="container">	
+		<div class="hero-unit">
+			<p>--- welcome text from Debleena ---</p>
+		</div>
+
+<div class="row">&nbsp;</div>
+
+<div class="row">
+        {% for company in featured_company|slice:":3" %}
+        <div class="span4 cmpli">
+            <h3><a href="/company/{{company.slug}}">{{company.name}}</a></h3>
+            <p class="body">{{ company.details }}</p>
+            <p class="foot"><a href="/mockup/b/pixlie/">{{company.slug}}@pixlie</a><span class="opt"><i class="icon-user"></i> {{ company.team_members.all.count}} members, {{ company.primary_address.city }} <img src="/mockup/asset/famfamfam_flag_icons/png/in.png" alt="India" title="Kolkata, India"></span></p>
+        </div>
+        {% endfor %}
+</div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        {% for company in featured_company|slice:"3:6" %}
+        <div class="span4 cmpli">
+            <h3><a href="/company/{{company.slug}}">{{company.name}}</a></h3>
+            <p class="body">{{ company.details }} </p>
+            <p class="foot"><a href="/mockup/b/pixlie/">{{company.slug}}@pixlie</a><span class="opt"><i class="icon-user"></i> {{ company.team_members.all.count}} members, {{ company.primary_address.city }} <img src="/mockup/asset/famfamfam_flag_icons/png/in.png" alt="India" title="Kolkata, India"></span></p>
+        </div>
+        {% endfor %}
+</div>
+	<footer>
+			<p>&copy; Company 2012</p>
+	</footer>
+</div> <!-- /container -->
+{% endblock %}
+
+{% block inject_foot %}
+{{ block.super }}
+{% endblock %}

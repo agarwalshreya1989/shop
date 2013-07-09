@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ 
+    <style type="text/css">
+    
+      body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-image:url("/static/images/background.jpg");
+}
+
+#full-screen-background-image {
+  z-index: -999;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  margin: 100px auto;
+  color: #000;
+}
+    nav
+    {
+        position: relative;
+        top: 0;
+        text-align: right;
+    
+        background-webkit-transition: all 1s ease;
+        background-moz-transition: all 1s ease;
+        background-o-transition: all 1s ease;
+        background-ms-transition: all 1s ease;
+    }
+    nav ul {
+        background: transparent;
+        background: linear-gradient(top, transparent 0%, transparent 100%);  
+        background: -moz-linear-gradient(top, transparent 0%, transparent 100%);
+        background: -webkit-linear-gradient(top, transparent 0%,transparent 100%);
+        box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+        padding: 0 20px;
+        border-radius: 10px;  
+        list-style: none;
+        position: relative;
+        display: inline-table;
+        width:100%;
+        height:5px;
+        }
+    nav ul:after {
+            content: ""; clear: both; display: block;
+        }
+
+    nav ul li {
+            float: right;
+        }
+    nav ul li:hover {
+            background: #600000 ;
+        }
+    nav ul li:hover a {
+                color: #fff;
+            }
+    
+    nav ul li a {
+            display: block; padding: 25px 40px;
+            color: #757575; text-decoration: none;
+        }   
+
+
+    h1 {
+      text-align: center;
+      color: white;
+      text-transform: uppercase;
+      padding: 1px;
+      font-family: 'Raleway', cursive;
+      font-weight: 100;
+      position: relative;
+      background: linear-gradient(left, black, #eee, black);
+    }
+    h1:before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -50px;
+      width: 600px;
+      margin-left: -300px;
+      margin-top: -220px;
+      height: 600px;
+      background: radial-gradient(50% 50%, ellipse closest-side, #444, black);
+      z-index: -1;
+    }
+    h1 a {
+      background: black;
+      display: block;
+      padding: 20px;
+      text-decoration: none;
+      letter-spacing: 30px;
+      color: white;
+      animation: comein 1.5s 1 ease-in-out forwards;
+    }
+    @keyframes comein {
+       0% { letter-spacing: 100px; color: rgba(255,255,255,0); }
+       70% { letter-spacing: 20px; }
+       100% { letter-spacing: 30px; color: rgba(255,255,255,1) }
+    }
+
+    </style>
+
+
+</head>
+<body>
+    <img alt="full screen background image" src="/static/images/background.jpg" id="full-screen-background-image"/>
+    
+      <div id="wrapper">
+          <h1><a href="#">pixlie</a></h1>
+    <nav>
+        {% if user.is_authenticated %}
+        <ul>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+        {% else %}
+        <ul>
+            <li><a href="{% url 'register' %}">Signup</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="#">Home</a></li>            
+        </ul>
+        {% endif %}
+        </nav>
+    {% block content %}
+   {% endblock %}
+      </div>
+
+</body>
+</html>
+
+
+
