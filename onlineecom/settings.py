@@ -121,6 +121,8 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+
+
 DJANGO_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,6 +130,7 @@ DJANGO_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'django.contrib.admin',
@@ -138,15 +141,20 @@ VENDOR_APPS = (
     'django_forms_bootstrap',
     'grappelli',
     'djrill',
+    'djmoney',
+
 )
 
 CUSTOM_APPS = (
     'apps.account',
-    'apps.shop',
+    'apps.product',
     'apps.payment',
-   
- 
-   
+    'apps.shipping',
+    'apps.customer',
+    'apps.common',
+    'apps.order',
+    'apps.collection',
+      
  
 )
 

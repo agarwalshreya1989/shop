@@ -12,8 +12,11 @@ urlpatterns = patterns('',
      url(r'^$', WelcomeView.as_view(), name="base"),
     # url(r'^smb/', include('smb.foo.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^account/', include('apps.account.urls')),
-    url(r'^shop/',include('apps.shop.urls')),
- 
+    #url(r'^account/', include('apps.account.urls')),
+    #url(r'^customer/',include('apps.customer.urls')),
+    #url(r'^shipping/',include('apps.shipping.urls')),
+    #url(r'^payment/',include('apps.payment.urls')),
+    #url(r'^product/',include('apps.product.urls')),
+   
    # url(r'^grappelli/', include('grappelli.urls')),
 )
